@@ -48,6 +48,9 @@
 
     <div class="nav-overlay" id="navOverlay"></div>
 
+    <!-- PayPal SDK - Reemplaza TU_CLIENT_ID con tu Client ID real de PayPal -->
+    <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID&currency=USD"></script>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -390,9 +393,13 @@
                     </div>
                     <p style="font-size: 0.875rem; color: #718096; margin-top: 0.5rem;">Ingresa el monto que deseas donar</p>
                 </div>
-                <button class="btn-donate-primary" id="donateNowBtn">
-                    🅿️ Donar con PayPal
-                </button>
+                
+                <!-- Contenedor del botón oficial de PayPal -->
+                <div id="paypal-button-container" style="margin-top: 1.5rem;"></div>
+                
+                <p style="font-size: 0.75rem; color: #718096; text-align: center; margin-top: 1rem;">
+                    También puedes donar directamente: <a href="https://paypal.me/SebastianS2005" target="_blank" style="color: #0070ba;">paypal.me/SebastianS2005</a>
+                </p>
             </div>
             <div class="modal-donate-footer">
                 <p>🔒 Pago seguro y encriptado con PayPal</p>
@@ -449,7 +456,6 @@
         const donateModal = document.getElementById('donateModal');
         const closeDonateModal = document.getElementById('closeDonateModal');
         const customAmountInput = document.getElementById('customAmount');
-        const donateNowBtn = document.getElementById('donateNowBtn');
 
         // Open modal
         if (donateBtnNav) {
@@ -457,7 +463,6 @@
                 e.preventDefault();
                 donateModal.classList.remove('hidden');
                 setTimeout(() => donateModal.classList.add('active'), 10);
-                // Focus en el input de monto
                 setTimeout(() => {
                     if (customAmountInput) customAmountInput.focus();
                 }, 100);
@@ -480,23 +485,48 @@
             }
         });
 
-        // Donate now button
-        if (donateNowBtn) {
-            donateNowBtn.addEventListener('click', () => {
-                const amount = customAmountInput?.value;
-                
-                if (!amount || amount <= 0) {
-                    alert('Por favor ingresa un monto válido');
-                    return;
-                }
-
-                // Tu link de PayPal.Me
-                const paypalUrl = 'https://paypal.me/SebastianS2005/' + amount + 'USD';
-                
-                window.open(paypalUrl, '_blank');
-                
-                closeDonate();
+        // Botón oficial de PayPal
+        let paypalAmount = '10'; // Monto por defecto
+        
+        // Actualizar monto cuando el usuario escribe
+        if (customAmountInput) {
+            customAmountInput.addEventListener('input', (e) => {
+                paypalAmount = e.target.value || '10';
             });
+        }
+
+        // Renderizar botón de PayPal cuando el modal se abre
+        if (donateModal && typeof paypal !== 'undefined') {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'donate',
+                    height: 45
+                },
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: paypalAmount || '10',
+                                currency_code: 'USD'
+                            },
+                            description: 'Donación a QR Generator Pro'
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('¡Gracias por tu donación, ' + details.payer.name.given_name + '! 🎉');
+                        closeDonate();
+                    });
+                },
+                onError: function(err) {
+                    console.error('Error en PayPal:', err);
+                    alert('Hubo un error con el pago. Por favor intenta de nuevo o usa paypal.me/SebastianS2005');
+                }
+            }).render('#paypal-button-container');
         }
     </script>
 </body>
