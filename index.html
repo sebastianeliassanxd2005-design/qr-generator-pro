@@ -221,7 +221,7 @@
 
                 <!-- Preview Panel -->
                 <div class="preview-panel">
-                    <h2>Vista Previa</h2>
+                    <h2 data-i18n="preview-title">Vista Previa</h2>
                     <div class="preview-container" id="previewContainer">
                         <div class="placeholder">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -233,7 +233,7 @@
                                 <rect x="14" y="18" width="3" height="3" rx="0.5"/>
                                 <rect x="18" y="18" width="3" height="3" rx="0.5"/>
                             </svg>
-                            <p>Tu QR aparecerá aquí</p>
+                            <p data-i18n="preview-placeholder">Tu QR aparecerá aquí</p>
                         </div>
                     </div>
                     
@@ -248,10 +248,10 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
                             </svg>
-                            Descargar QR
+                            <span data-i18n="preview-download">Descargar QR</span>
                         </button>
-                        <p class="download-note">✓ Sin marca de agua ✓ Alta calidad</p>
-                        
+                        <p class="download-note" data-i18n="preview-note">✓ Sin marca de agua ✓ Alta calidad</p>
+
                         <!-- Google AdSense - Debajo del botón de descarga -->
                         <div class="adsense-container" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
                             <ins class="adsbygoogle"
@@ -268,18 +268,18 @@
 
                     <!-- Analytics Preview -->
                     <div class="analytics-preview hidden" id="analyticsPreview">
-                        <h3>Analytics de este QR</h3>
+                        <h3 data-i18n="preview-analytics">Analytics de este QR</h3>
                         <div class="analytics-grid">
                             <div class="analytics-card">
                                 <span class="analytics-value" id="scanCount">0</span>
-                                <span class="analytics-label">Scans</span>
+                                <span class="analytics-label" data-i18n="preview-scans">Scans</span>
                             </div>
                             <div class="analytics-card">
                                 <span class="analytics-value" id="lastScan">-</span>
-                                <span class="analytics-label">Último scan</span>
+                                <span class="analytics-label" data-i18n="preview-last">Último scan</span>
                             </div>
                         </div>
-                        <button class="btn-analytics" id="viewAnalyticsBtn">Ver Analytics Completo</button>
+                        <button class="btn-analytics" id="viewAnalyticsBtn" data-i18n="preview-view">Ver Analytics Completo</button>
                     </div>
                 </div>
             </div>
@@ -289,7 +289,7 @@
     <!-- Features Section -->
     <section class="features-section" id="features">
         <div class="container">
-            <h2>¿Por qué elegir QR Generator Pro?</h2>
+            <h2 data-i18n="feat-title">¿Por qué elegir QR Generator Pro?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -299,8 +299,8 @@
                             <circle cx="12" cy="12" r="3" fill="currentColor"/>
                         </svg>
                     </div>
-                    <h3>100% Personalizable</h3>
-                    <p>Colores, gradientes, logos. Crea QR únicos que representen tu marca.</p>
+                    <h3 data-i18n="feat-1-title">100% Personalizable</h3>
+                    <p data-i18n="feat-1-desc">Colores, gradientes, logos. Crea QR únicos que representen tu marca.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -310,8 +310,8 @@
                             <line x1="6" y1="20" x2="6" y2="14"/>
                         </svg>
                     </div>
-                    <h3>Analytics Incluido</h3>
-                    <p>Trackea descargas y actividad. <a href="analytics.html">Ver dashboard completo →</a></p>
+                    <h3 data-i18n="feat-2-title">Analytics Incluido</h3>
+                    <p data-i18n="feat-2-desc">Trackea descargas y actividad. <a href="analytics.html" data-i18n="feat-2-link">Ver dashboard completo →</a></p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -320,8 +320,8 @@
                             <path d="M7 11V7a5 5 0 0110 0v4"/>
                         </svg>
                     </div>
-                    <h3>Sin Registro</h3>
-                    <p>Usa todas las funciones sin crear cuenta. Tus datos son tuyos.</p>
+                    <h3 data-i18n="feat-3-title">Sin Registro</h3>
+                    <p data-i18n="feat-3-desc">Usa todas las funciones sin crear cuenta. Tus datos son tuyos.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -329,8 +329,8 @@
                             <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
                         </svg>
                     </div>
-                    <h3>Ultra Rápido</h3>
-                    <p>Generación instantánea en tu navegador. Sin esperas.</p>
+                    <h3 data-i18n="feat-4-title">Ultra Rápido</h3>
+                    <p data-i18n="feat-4-desc">Generación instantánea en tu navegador. Sin esperas.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -344,8 +344,8 @@
                             <rect x="18" y="18" width="3" height="3" rx="0.5"/>
                         </svg>
                     </div>
-                    <h3>QR Permanentes</h3>
-                    <p>Tus QR nunca expiran. Úsalos cuando quieras, sin límites.</p>
+                    <h3 data-i18n="feat-5-title">QR Permanentes</h3>
+                    <p data-i18n="feat-5-desc">Tus QR nunca expiran. Úsalos cuando quieras, sin límites.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -355,12 +355,12 @@
                             <line x1="12" y1="15" x2="12" y2="3"/>
                         </svg>
                     </div>
-                    <h3>Múltiples Formatos</h3>
-                    <p>Descarga en PNG, SVG o JPEG. Listo para imprimir o digital.</p>
+                    <h3 data-i18n="feat-6-title">Múltiples Formatos</h3>
+                    <p data-i18n="feat-6-desc">Descarga en PNG, SVG o JPEG. Listo para imprimir o digital.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="features.html" style="display: inline-block; color: #667eea; text-decoration: none; font-weight: 600;">Ver todas las características →</a>
+                <a href="features.html" data-i18n="feat-link" style="display: inline-block; color: #667eea; text-decoration: none; font-weight: 600;">Ver todas las características →</a>
             </div>
         </div>
     </section>
@@ -369,9 +369,9 @@
     <section class="analytics-section" id="analytics">
         <div class="container">
             <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; border-radius: 1rem; text-align: center;">
-                <h2 style="font-size: 2rem; margin-bottom: 1rem;">¿Quieres ver todos tus QRs?</h2>
-                <p style="opacity: 0.9; margin-bottom: 1.5rem;">Accede al dashboard completo para gestionar y analizar todos tus códigos QR</p>
-                <a href="analytics.html" style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Ir a Analytics</a>
+                <h2 data-i18n="analytics-cta-title" style="font-size: 2rem; margin-bottom: 1rem;">¿Quieres ver todos tus QRs?</h2>
+                <p data-i18n="analytics-cta-desc" style="opacity: 0.9; margin-bottom: 1.5rem;">Accede al dashboard completo para gestionar y analizar todos tus códigos QR</p>
+                <a href="analytics.html" data-i18n="analytics-cta-btn" style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Ir a Analytics</a>
             </div>
         </div>
     </section>
