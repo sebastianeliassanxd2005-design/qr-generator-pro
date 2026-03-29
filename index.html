@@ -458,9 +458,9 @@
             lastTouchEnd = now;
         }, false);
 
-        // Prevenir zoom con pinch
+        // Prevenir zoom con pinch - SOLO si hay 2 dedos
         document.addEventListener('touchmove', (e) => {
-            if (e.scale !== 1) {
+            if (e.touches && e.touches.length > 1) {
                 e.preventDefault();
             }
         }, { passive: false });
@@ -479,16 +479,8 @@
             e.preventDefault();
         });
         
-        // Prevenir menú lateral al deslizar desde el borde
-        document.addEventListener('touchstart', (e) => {
-            // Solo permitir si NO es el botón hamburguesa
-            if (!e.target.closest('#menuToggle') && !e.target.closest('.nav')) {
-                // Prevenir swipe desde el borde derecho
-                if (e.touches[0].clientX > window.innerWidth - 50) {
-                    e.preventDefault();
-                }
-            }
-        }, { passive: true });
+        // NO prevenir scroll - permitir scroll vertical normal
+        // El swipe desde el borde derecho ya no se previene para permitir navegación del navegador
     </script>
     <script>
         // Mobile Menu Toggle

@@ -51,10 +51,12 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     overflow-y: auto; /* Permitir scroll vertical */
-    /* Prevenir zoom en iOS */
-    touch-action: pan-x pan-y;
+    /* Prevenir zoom en iOS - solo en elementos específicos, no en body */
+    touch-action: manipulation;
     /* Prevenir scroll elástico */
     overscroll-behavior-y: none;
+    /* Asegurar scroll en iOS */
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Responsive images and canvas */
