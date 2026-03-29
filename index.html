@@ -503,11 +503,26 @@
                     color: 'gold',
                     layout: 'vertical',
                     label: 'donate',
+                    tagline: false,
                     height: 45
                 },
                 funding: {
-                    allowed: [paypal.FUNDING.PAYPAL],
-                    disallowed: [paypal.FUNDING.CARD, paypal.FUNDING.CREDIT, paypal.FUNDING.PAYLATER]
+                    disallowed: [
+                        paypal.FUNDING.CARD,
+                        paypal.FUNDING.CREDIT,
+                        paypal.FUNDING.PAYLATER,
+                        paypal.FUNDING.VENMO,
+                        paypal.FUNDING.APPLEGOOGLEPAY,
+                        paypal.FUNDING.IDEAL,
+                        paypal.FUNDING.BANCONTACT,
+                        paypal.FUNDING.GIROPAY,
+                        paypal.FUNDING.EPS,
+                        paypal.FUNDING.MYBANK,
+                        paypal.FUNDING.PRZELEWY24,
+                        paypal.FUNDING.SOFORT,
+                        paypal.FUNDING.TRUSTLY,
+                        paypal.FUNDING.VERKKOPANKKI
+                    ]
                 },
                 createOrder: function(data, actions) {
                     return actions.order.create({
@@ -528,7 +543,11 @@
                 },
                 onError: function(err) {
                     console.error('Error en PayPal:', err);
-                    alert('Hubo un error con el pago. Por favor intenta de nuevo o usa paypal.me/SebastianS2005');
+                    // Si hay error, redirigir a PayPal.Me
+                    const paypalMeUrl = 'https://paypal.me/SebastianS2005/' + paypalAmount + 'USD';
+                    if (confirm('Hubo un error con el botón de PayPal. ¿Quieres intentar con PayPal.Me?')) {
+                        window.open(paypalMeUrl, '_blank');
+                    }
                 }
             }).render('#paypal-button-container');
         }
