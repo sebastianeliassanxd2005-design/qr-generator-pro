@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Características - QR Generator Pro</title>
     <meta name="description" content="Descubre todas las características de QR Generator Pro. QRs personalizados, múltiples formatos, sin registro y 100% gratis.">
     <link rel="stylesheet" href="styles.css">
@@ -10,6 +10,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Bloquear scroll horizontal completamente */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+        }
+        
+        /* Solo permitir scroll vertical */
+        body {
+            overflow-y: auto !important;
+            touch-action: pan-y !important;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Prevenir cualquier movimiento horizontal */
+        * {
+            max-width: 100%;
+        }
+        
         .features-hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
