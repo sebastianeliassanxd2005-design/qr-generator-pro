@@ -627,34 +627,6 @@
         </div>
     </footer>
 
-    <!-- Scripts para prevenir zoom en móviles (SOLO gestos, permitir scroll) -->
-    <script>
-        // Prevenir zoom con doble tap
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', (e) => {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                e.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, { passive: true });
-
-        // NO prevenir touchmove - permitir scroll natural
-        // Solo prevenir gestos de zoom con 2+ dedos
-        document.addEventListener('gesturestart', (e) => {
-            e.preventDefault();
-        });
-
-        document.addEventListener('gesturechange', (e) => {
-            e.preventDefault();
-        });
-
-        // Prevenir menú contextual
-        document.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-        });
-    </script>
-
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
