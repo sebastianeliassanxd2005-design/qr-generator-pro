@@ -627,7 +627,7 @@
         </div>
     </footer>
 
-    <!-- Scripts para prevenir zoom y swipe en móviles -->
+    <!-- Scripts para prevenir zoom en móviles (SOLO gestos, permitir scroll) -->
     <script>
         // Prevenir zoom con doble tap
         let lastTouchEnd = 0;
@@ -637,18 +637,10 @@
                 e.preventDefault();
             }
             lastTouchEnd = now;
-        }, false);
-
-        // Prevenir zoom con pinch (2 dedos) - PERMITIR scroll vertical con 1 dedo
-        document.addEventListener('touchmove', (e) => {
-            // Solo prevenir si hay 2 o más dedos (pinch zoom)
-            if (e.touches && e.touches.length > 1) {
-                e.preventDefault();
-            }
-            // Con 1 dedo, permitir scroll normal
         }, { passive: true });
 
-        // Prevenir gestos de navegación (zoom, etc.)
+        // NO prevenir touchmove - permitir scroll natural
+        // Solo prevenir gestos de zoom con 2+ dedos
         document.addEventListener('gesturestart', (e) => {
             e.preventDefault();
         });
@@ -709,6 +701,14 @@
                 if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
                     closeMenu();
                 }
+            });
+        }
+
+        // Botón de recargar página
+        const reloadBtn = document.getElementById('reloadBtn');
+        if (reloadBtn) {
+            reloadBtn.addEventListener('click', () => {
+                window.location.reload();
             });
         }
     </script>
