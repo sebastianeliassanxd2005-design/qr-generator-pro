@@ -447,43 +447,63 @@
         document.addEventListener('contextmenu', (e) => {
             e.preventDefault();
         });
+        
+        // Prevenir menú lateral al deslizar desde el borde
+        document.addEventListener('touchstart', (e) => {
+            // Solo permitir si NO es el botón hamburguesa
+            if (!e.target.closest('#menuToggle') && !e.target.closest('.nav')) {
+                // Prevenir swipe desde el borde derecho
+                if (e.touches[0].clientX > window.innerWidth - 50) {
+                    e.preventDefault();
+                }
+            }
+        }, { passive: true });
     </script>
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.querySelector('.nav');
         const navOverlay = document.getElementById('navOverlay');
-        
+
         if (menuToggle) {
             function toggleMenu() {
                 const isActive = menuToggle.classList.toggle('active');
                 navMenu.classList.toggle('active');
-                navOverlay.classList.toggle('active');
-                document.body.style.overflow = menuToggle.classList.contains('active') ? 'hidden' : '';
+                if (navOverlay) navOverlay.classList.toggle('active');
+                // Permitir scroll cuando el menú está cerrado
+                document.body.style.overflow = isActive ? 'hidden' : '';
             }
 
             function closeMenu() {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
-                navOverlay.classList.remove('active');
+                if (navOverlay) navOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             }
-            
-            menuToggle.addEventListener('click', toggleMenu);
-            
+
+            // Solo abrir con click en el botón hamburguesa
+            menuToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+            });
+
             // Cerrar menú al hacer click en un link
             document.querySelectorAll('.nav a').forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
-            
+
             // Cerrar menú al hacer click en overlay
             if (navOverlay) {
-                navOverlay.addEventListener('click', closeMenu);
+                navOverlay.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    closeMenu();
+                });
             }
-            
-            // Cerrar menú al hacer click fuera
+
+            // Cerrar menú al hacer click fuera (pero NO desde el borde derecho)
             document.addEventListener('click', (e) => {
-                if (!menuToggle.contains(e.target) && !navMenu.contains(e.target) && !navOverlay.contains(e.target)) {
+                if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
                     closeMenu();
                 }
             });

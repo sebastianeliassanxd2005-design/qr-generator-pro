@@ -50,10 +50,11 @@ body {
     background: var(--bg);
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: auto; /* Permitir scroll vertical */
     /* Prevenir zoom en iOS */
     touch-action: pan-x pan-y;
     /* Prevenir scroll elástico */
-    overscroll-behavior: none;
+    overscroll-behavior-y: none;
 }
 
 /* Responsive images and canvas */
