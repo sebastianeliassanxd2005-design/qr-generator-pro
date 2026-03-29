@@ -64,20 +64,20 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Crea Códigos QR Personalizados <span class="highlight">Gratis</span></h1>
-            <p>Genera QR con colores, logos y analytics de scans. Sin registro, sin marcas de agua, sin límites.</p>
+            <h1 data-i18n="hero-title">Crea Códigos QR Personalizados <span class="highlight">Gratis</span></h1>
+            <p data-i18n="hero-subtitle">Genera QR con colores, logos y analytics de scans. Sin registro, sin marcas de agua, sin límites.</p>
             <div class="hero-stats">
                 <div class="stat">
                     <span class="stat-number" id="totalQr">0</span>
-                    <span class="stat-label">QRs generados</span>
+                    <span class="stat-label" data-i18n="stat-qrs">QRs generados</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">100%</span>
-                    <span class="stat-label">Gratis</span>
+                    <span class="stat-label" data-i18n="stat-free">Gratis</span>
                 </div>
                 <div class="stat">
                     <span class="stat-number">0</span>
-                    <span class="stat-label">Registro requerido</span>
+                    <span class="stat-label" data-i18n="stat-register">Registro requerido</span>
                 </div>
             </div>
         </div>
@@ -102,56 +102,56 @@
             <div class="generator-grid">
                 <!-- Form Panel -->
                 <div class="form-panel">
-                    <h2>Configura tu QR</h2>
-                    
+                    <h2 data-i18n="gen-title">Configura tu QR</h2>
+
                     <!-- URL Input -->
                     <div class="form-group">
-                        <label for="qrUrl" id="qrInputLabel">URL o Contenido *</label>
-                        <input type="text" id="qrUrl" placeholder="https://tu-sitio.com" required>
-                        <small id="qrInputSmall">Ingresa la URL, texto, email, teléfono, etc.</small>
+                        <label for="qrUrl" id="qrInputLabel" data-i18n="gen-label-url">URL o Contenido *</label>
+                        <input type="text" id="qrUrl" placeholder="https://tu-sitio.com" data-i18n-placeholder="gen-placeholder-url" required>
+                        <small id="qrInputSmall" data-i18n="gen-small-url">Ingresa la URL, texto, email, teléfono, etc.</small>
                     </div>
 
                     <!-- Content Type -->
                     <div class="form-group">
-                        <label>Tipo de Contenido</label>
+                        <label data-i18n="gen-type">Tipo de Contenido</label>
                         <div class="type-selector">
-                            <button class="type-btn active" data-type="url">URL</button>
-                            <button class="type-btn" data-type="text">Texto</button>
-                            <button class="type-btn" data-type="email">Email</button>
-                            <button class="type-btn" data-type="phone">Teléfono</button>
-                            <button class="type-btn" data-type="wifi">WiFi</button>
+                            <button class="type-btn active" data-type="url" data-i18n="gen-type-url">URL</button>
+                            <button class="type-btn" data-type="text" data-i18n="gen-type-text">Texto</button>
+                            <button class="type-btn" data-type="email" data-i18n="gen-type-email">Email</button>
+                            <button class="type-btn" data-type="phone" data-i18n="gen-type-phone">Teléfono</button>
+                            <button class="type-btn" data-type="wifi" data-i18n="gen-type-wifi">WiFi</button>
                         </div>
                     </div>
 
                     <!-- WiFi Options (hidden by default) -->
                     <div class="form-group wifi-options hidden" id="wifiOptions">
-                        <label>Red WiFi</label>
-                        <input type="text" id="wifiSsid" placeholder="Nombre de la red (SSID)">
-                        <input type="password" id="wifiPassword" placeholder="Contraseña">
+                        <label data-i18n="gen-wifi-ssid">Red WiFi</label>
+                        <input type="text" id="wifiSsid" placeholder="Nombre de la red (SSID)" data-i18n-placeholder="gen-wifi-ssid">
+                        <input type="password" id="wifiPassword" placeholder="Contraseña" data-i18n-placeholder="gen-wifi-password">
                         <select id="wifiEncryption">
                             <option value="WPA">WPA/WPA2</option>
                             <option value="WEP">WEP</option>
-                            <option value="nopass">Sin contraseña</option>
+                            <option value="nopass" data-i18n="gen-wifi-nopass">Sin contraseña</option>
                         </select>
                     </div>
 
                     <!-- Color Customization -->
                     <div class="form-group">
-                        <label>Colores</label>
+                        <label data-i18n="gen-colors">Colores</label>
                         <div class="color-options">
                             <div class="color-picker-group">
-                                <label>Color del QR</label>
+                                <label data-i18n="gen-qr-color">Color del QR</label>
                                 <input type="color" id="qrColor" value="#000000">
                             </div>
                             <div class="color-picker-group">
-                                <label>Color de Fondo</label>
+                                <label data-i18n="gen-bg-color">Color de Fondo</label>
                                 <input type="color" id="bgColor" value="#ffffff">
                             </div>
                         </div>
                         <div class="gradient-option">
                             <label class="checkbox-label">
                                 <input type="checkbox" id="useGradient">
-                                <span>Usar gradiente</span>
+                                <span data-i18n="gen-gradient">Usar gradiente</span>
                             </label>
                             <div class="gradient-inputs hidden" id="gradientInputs">
                                 <input type="color" id="gradientColor1" value="#667eea">
@@ -162,7 +162,7 @@
 
                     <!-- Logo Upload -->
                     <div class="form-group">
-                        <label>Logo Central (opcional)</label>
+                        <label data-i18n="gen-logo">Logo Central (opcional)</label>
                         <div class="file-upload">
                             <input type="file" id="logoUpload" accept="image/*">
                             <label for="logoUpload" class="file-label">
@@ -171,9 +171,9 @@
                                     <circle cx="8.5" cy="8.5" r="1.5"/>
                                     <path d="M21 15l-5-5L5 21"/>
                                 </svg>
-                                <span>Subir logo</span>
+                                <span data-i18n="gen-upload">Subir logo</span>
                             </label>
-                            <small>PNG o JPG, máximo 500KB</small>
+                            <small data-i18n="gen-logo-small">PNG o JPG, máximo 500KB</small>
                         </div>
                         <div class="logo-preview hidden" id="logoPreview">
                             <img id="logoPreviewImg" src="" alt="Logo preview">
@@ -183,7 +183,7 @@
 
                     <!-- Size & Error Correction -->
                     <div class="form-group">
-                        <label>Tamaño y Calidad</label>
+                        <label data-i18n="gen-size">Tamaño y Calidad</label>
                         <div class="size-options">
                             <label>
                                 <input type="radio" name="qrSize" value="256">
@@ -199,14 +199,14 @@
                             </label>
                         </div>
                         <div class="error-correction">
-                            <label for="errorCorrection">Corrección de Errores</label>
+                            <label for="errorCorrection" data-i18n="gen-error">Corrección de Errores</label>
                             <select id="errorCorrection">
-                                <option value="L">Baja (7%)</option>
-                                <option value="M" selected>Media (15%)</option>
-                                <option value="Q">Alta (25%)</option>
-                                <option value="H">Muy Alta (30%)</option>
+                                <option value="L" data-i18n="gen-error-low">Baja (7%)</option>
+                                <option value="M" selected data-i18n="gen-error-medium">Media (15%)</option>
+                                <option value="Q" data-i18n="gen-error-high">Alta (25%)</option>
+                                <option value="H" data-i18n="gen-error-highest">Muy Alta (30%)</option>
                             </select>
-                            <small>Nivel H recomendado si usas logo</small>
+                            <small data-i18n="gen-error-small">Nivel H recomendado si usas logo</small>
                         </div>
                     </div>
 
@@ -215,7 +215,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                         </svg>
-                        Generar QR
+                        <span data-i18n="gen-btn">Generar QR</span>
                     </button>
                 </div>
 
