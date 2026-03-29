@@ -42,6 +42,9 @@ html {
     touch-action: manipulation;
     /* Prevenir scroll elástico */
     overscroll-behavior: none;
+    /* Asegurar que html tenga scroll */
+    height: auto;
+    min-height: 100%;
 }
 
 body {
@@ -57,6 +60,9 @@ body {
     overscroll-behavior-y: none;
     /* Asegurar scroll en iOS */
     -webkit-overflow-scrolling: touch;
+    /* Asegurar que body tenga scroll */
+    min-height: 100vh;
+    height: auto;
 }
 
 /* Responsive images and canvas */
@@ -1072,6 +1078,9 @@ img, canvas, svg {
     /* Generator */
     .generator-section {
         padding: 1.5rem 0;
+        /* Asegurar scroll en móvil */
+        min-height: auto;
+        overflow: visible;
     }
 
     .generator-grid {
@@ -1081,6 +1090,10 @@ img, canvas, svg {
 
     .form-panel, .preview-panel {
         padding: 1.5rem;
+        /* Permitir que el contenido se expanda */
+        height: auto;
+        min-height: auto;
+        overflow: visible;
     }
 
     .form-panel h2, .preview-panel h2 {
