@@ -505,6 +505,10 @@
                     label: 'donate',
                     height: 45
                 },
+                funding: {
+                    allowed: [paypal.FUNDING.PAYPAL],
+                    disallowed: [paypal.FUNDING.CARD, paypal.FUNDING.CREDIT, paypal.FUNDING.PAYLATER]
+                },
                 createOrder: function(data, actions) {
                     return actions.order.create({
                         purchase_units: [{
