@@ -748,12 +748,14 @@
             lastTouchEnd = now;
         }, false);
 
-        // Prevenir zoom con pinch (2 dedos)
+        // Prevenir zoom con pinch (2 dedos) - PERMITIR scroll vertical con 1 dedo
         document.addEventListener('touchmove', (e) => {
+            // Solo prevenir si hay 2 o más dedos (pinch zoom)
             if (e.touches && e.touches.length > 1) {
                 e.preventDefault();
             }
-        }, { passive: false });
+            // Con 1 dedo, permitir scroll normal
+        }, { passive: true });
 
         // Prevenir gestos de navegación (zoom, etc.)
         document.addEventListener('gesturestart', (e) => {
