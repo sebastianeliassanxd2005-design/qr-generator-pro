@@ -949,6 +949,16 @@ img, canvas, svg {
 
     .header .container {
         flex-wrap: nowrap;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
     }
 
     .menu-toggle {
@@ -969,6 +979,7 @@ img, canvas, svg {
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         z-index: 99;
+        overflow-y: auto;
     }
 
     .nav.active {
@@ -991,9 +1002,10 @@ img, canvas, svg {
         padding-left: 0.5rem;
     }
 
-    /* Overlay cuando el menú está abierto */
-    body.menu-open {
-        overflow: hidden;
+    .btn-donate-nav {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
     }
 
     /* Hero */
@@ -1003,6 +1015,7 @@ img, canvas, svg {
 
     .hero h1 {
         font-size: 1.5rem;
+        line-height: 1.3;
     }
 
     .hero p {
@@ -1062,11 +1075,14 @@ img, canvas, svg {
 
     .type-selector {
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .type-btn {
         padding: 0.5rem 0.75rem;
         font-size: 0.875rem;
+        flex: 1;
+        min-width: calc(50% - 0.25rem);
     }
 
     .color-options {
@@ -1137,6 +1153,38 @@ img, canvas, svg {
         font-size: 1.5rem;
     }
 
+    /* Donate Modal */
+    .modal-donate {
+        margin: 1rem;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    .modal-donate-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .modal-donate-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-donate-body {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .donate-icon {
+        font-size: 48px !important;
+    }
+
+    .donate-options {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-donate-primary {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+
     /* Footer */
     .footer {
         padding: 1.5rem 0;
@@ -1169,6 +1217,23 @@ img, canvas, svg {
 
 /* Mobile small */
 @media (max-width: 480px) {
+    .header .container {
+        padding: 0 10px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .hero {
+        padding: 1.5rem 0;
+    }
+
     .hero h1 {
         font-size: 1.25rem;
     }
@@ -1183,7 +1248,7 @@ img, canvas, svg {
 
     .type-btn {
         flex: 1;
-        min-width: calc(50% - 0.25rem);
+        min-width: 100%;
         text-align: center;
     }
 
@@ -1200,6 +1265,88 @@ img, canvas, svg {
     .feature-icon svg {
         width: 40px;
         height: 40px;
+    }
+
+    .modal-donate {
+        margin: 0.5rem;
+    }
+
+    .modal-donate-header,
+    .modal-donate-body,
+    .modal-donate-footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .donate-icon {
+        font-size: 40px !important;
+    }
+
+    .donate-input-group input {
+        font-size: 1rem;
+    }
+
+    #paypal-button-container {
+        transform: scale(0.95);
+        transform-origin: center top;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .generator-grid {
+        gap: 1.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .saved-qrs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-donate {
+        max-width: 450px;
+    }
+}
+
+/* Desktop large */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+
+    .form-panel, .preview-panel {
+        padding: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .saved-qrs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .modal-donate {
+        max-width: 550px;
     }
 }
 
