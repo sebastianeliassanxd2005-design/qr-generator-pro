@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Características - QR Generator Pro</title>
+    <meta name="description" content="Descubre todas las características de QR Generator Pro. QRs personalizados, múltiples formatos, sin registro y 100% gratis.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .features-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .features-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .features-hero p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-detail {
+            padding: 3rem 0;
+        }
+        
+        .feature-detail-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .feature-detail-card {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+            
+            .feature-icon-large svg {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .features-hero {
+                padding: 2rem 0;
+            }
+            
+            .features-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .features-hero p {
+                font-size: 1rem;
+            }
+            
+            .comparison-table {
+                font-size: 0.875rem;
+                overflow-x: auto;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.5rem;
+            }
+        }
+        
+        .feature-detail-card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .feature-svg {
+            width: 32px;
+            height: 32px;
+            color: #667eea;
+            flex-shrink: 0;
+        }
+        
+        .feature-detail-card p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-detail-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-detail-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5568;
+        }
+        
+        .feature-detail-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .feature-icon-large {
+            font-size: 4rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon-large svg {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+        
+        .comparison-table .check {
+            color: #48bb78;
+            font-size: 1.25rem;
+        }
+        
+        .comparison-table .cross {
+            color: #f56565;
+            font-size: 1.25rem;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f7fafc;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Donate Button */
+        .btn-donate-nav {
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+            color: var(--white) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-donate-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(237, 137, 54, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="3" height="3" rx="0.5"/>
+                    <rect x="18" y="14" width="3" height="3" rx="0.5"/>
+                    <rect x="14" y="18" width="3" height="3" rx="0.5"/>
+                    <rect x="18" y="18" width="3" height="3" rx="0.5"/>
+                </svg>
+                <span>QR Generator Pro</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html">Generador</a>
+                <a href="features.html" class="active">Características</a>
+                <a href="analytics.html">Analytics</a>
+                <a href="docs.html">Documentación</a>
+                <a href="index.html" class="btn-donate-nav">☕ Donar</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Hero -->
+    <section class="features-hero">
+        <div class="container">
+            <h1>Características</h1>
+            <p>Todo lo que necesitas para crear códigos QR profesionales, 100% gratis</p>
+        </div>
+    </section>
+
+    <!-- Features Detail -->
+    <section class="features-detail">
+        <div class="container">
+            <!-- Feature 1 -->
+            <div class="feature-detail-card">
+                <div>
+                    <h2>
+                        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 9v3l2 2"/>
+                        </svg>
+                        Personalización Completa
+                    </h2>
+                    <p>Crea QRs únicos que representen tu marca. Olvídate de los QRs aburridos en blanco y negro.</p>
+                    <ul>
+                        <li>Colores personalizados para el QR y fondo</li>
+                        <li>Gradientes de color para un look moderno</li>
+                        <li>Logo central para branding</li>
+                        <li>Múltiples estilos de puntos y esquinas</li>
+                        <li>Diferentes tamaños (256px hasta 1024px)</li>
+                    </ul>
+                </div>
+                <div class="feature-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 8v8M8 12h8"/>
+                        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-detail-card">
+                <div>
+                    <h2>
+                        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2"/>
+                            <line x1="12" y1="18" x2="12" y2="18"/>
+                            <circle cx="12" cy="14" r="1" fill="currentColor"/>
+                        </svg>
+                        Múltiples Tipos de Contenido
+                    </h2>
+                    <p>Más que solo URLs. Crea QRs para cualquier necesidad.</p>
+                    <ul>
+                        <li><strong>URL:</strong> Enlaza a cualquier sitio web</li>
+                        <li><strong>Texto:</strong> Muestra información directamente</li>
+                        <li><strong>Email:</strong> Abre cliente de correo con destinatario</li>
+                        <li><strong>Teléfono:</strong> Llama directamente al escanear</li>
+                        <li><strong>WiFi:</strong> Conecta automáticamente a tu red</li>
+                    </ul>
+                </div>
+                <div class="feature-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="5" y="2" width="14" height="20" rx="2"/>
+                        <line x1="12" y1="18" x2="12" y2="18"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-detail-card">
+                <div>
+                    <h2>
+                        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Múltiples Formatos de Exportación
+                    </h2>
+                    <p>Descarga tu QR en el formato que necesites.</p>
+                    <ul>
+                        <li><strong>PNG:</strong> Ideal para web y redes sociales</li>
+                        <li><strong>SVG:</strong> Vectorial, perfecto para impresión</li>
+                        <li><strong>JPEG:</strong> Compatible con todo</li>
+                        <li>Alta resolución hasta 1024x1024px</li>
+                        <li>Sin marca de agua en ningún formato</li>
+                    </ul>
+                </div>
+                <div class="feature-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-detail-card">
+                <div>
+                    <h2>
+                        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0110 0v4"/>
+                            <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                        </svg>
+                        100% Privado y Seguro
+                    </h2>
+                    <p>Tus datos nunca salen de tu navegador.</p>
+                    <ul>
+                        <li>Generación 100% en el navegador (client-side)</li>
+                        <li>Sin envío de datos a servidores</li>
+                        <li>Sin registro requerido</li>
+                        <li>Sin cookies de rastreo</li>
+                        <li>Código abierto y transparente</li>
+                    </ul>
+                </div>
+                <div class="feature-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0110 0v4"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-detail-card">
+                <div>
+                    <h2>
+                        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                        </svg>
+                        Rápido y Sin Límites
+                    </h2>
+                    <p>Genera todos los QRs que necesites, cuando los necesites.</p>
+                    <ul>
+                        <li>Generación instantánea</li>
+                        <li>QRs ilimitados gratis</li>
+                        <li>Descargas ilimitadas</li>
+                        <li>Sin colas ni esperas</li>
+                        <li>Historial guardado en tu navegador</li>
+                    </ul>
+                </div>
+                <div class="feature-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="features-detail">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Nosotros vs Otros Generadores</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>QR Generator Pro</th>
+                        <th>Otros Gratis</th>
+                        <th>Otros Pagos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;">Precio</td>
+                        <td><span class="check">✓ Gratis</span></td>
+                        <td><span class="check">✓ Gratis</span></td>
+                        <td><span class="cross">✕ $5-15/mes</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Sin marca de agua</td>
+                        <td><span class="check">✓ Sí</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                        <td><span class="check">✓ Sí</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Sin registro</td>
+                        <td><span class="check">✓ Sí</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">QRs ilimitados</td>
+                        <td><span class="check">✓ Sí</span></td>
+                        <td><span class="cross">✕ 5-10/mes</span></td>
+                        <td><span class="check">✓ Sí</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Colores personalizados</td>
+                        <td><span class="check">✓ Sí</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                        <td><span class="check">✓ Sí</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Logo en el QR</td>
+                        <td><span class="check">✓ Sí</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                        <td><span class="check">✓ Sí</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Gradientes</td>
+                        <td><span class="check">✓ Sí</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Múltiples formatos</td>
+                        <td><span class="check">✓ PNG, SVG, JPEG</span></td>
+                        <td><span class="cross">✕ Solo PNG</span></td>
+                        <td><span class="check">✓ Todos</span></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Analytics</td>
+                        <td><span class="check">✓ Básico</span></td>
+                        <td><span class="cross">✕ No</span></td>
+                        <td><span class="check">✓ Avanzado</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="features-detail">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Casos de Uso</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 64px; height: 64px; color: #ed8936;">
+                            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/>
+                            <path d="M14 2v7a2 2 0 002 2h4a2 2 0 002-2V2"/>
+                            <path d="M12 11v9M3 13h18M3 18h18"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Restaurantes</h3>
+                    <p style="color: #718096; font-size: 0.95rem;">Menús digitales, WiFi para clientes, pagos QR</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 64px; height: 64px; color: #48bb78;">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">E-commerce</h3>
+                    <p style="color: #718096; font-size: 0.95rem;">Seguimiento de paquetes, promociones, reseñas</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 64px; height: 64px; color: #ed64a6;">
+                            <path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-2a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Eventos</h3>
+                    <p style="color: #718096; font-size: 0.95rem;">Tickets digitales, check-in, información</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 64px; height: 64px; color: #4299e1;">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Negocios</h3>
+                    <p style="color: #718096; font-size: 0.95rem;">Tarjetas de presentación, catálogos, contacto</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 64px; height: 64px; color: #ecc94b;">
+                            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Educación</h3>
+                    <p style="color: #718096; font-size: 0.95rem;">Material educativo, enlaces, recursos</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 0.5rem;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 64px; height: 64px; color: #f56565;">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;">Salud</h3>
+                    <p style="color: #718096; font-size: 0.95rem;">Turnos, información, formularios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para crear tu primer QR?</h2>
+            <p style="opacity: 0.9; margin-bottom: 1rem;">Empieza ahora, es 100% gratis</p>
+            <a href="index.html" class="cta-button">Ir al Generador</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        </svg>
+                        <span>QR Generator Pro</span>
+                    </div>
+                    <p>Crea códigos QR personalizados gratis. Sin registro, sin límites.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Producto</h4>
+                    <a href="index.html">Generador</a>
+                    <a href="features.html">Características</a>
+                    <a href="analytics.html">Analytics</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <a href="#">API (pronto)</a>
+                    <a href="#">Documentación</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 QR Generator Pro. 100% gratis y sin registro.</p>
+                <p style="margin-top: 0.5rem;">¿Te gusta este proyecto? <a href="https://paypal.me/SebastianS2005" target="_blank" style="color: #0070ba; font-weight: 600; text-decoration: none;">Apóyame con una donación 💙</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.querySelector('.nav');
+        const navOverlay = document.getElementById('navOverlay');
+        
+        if (menuToggle) {
+            function toggleMenu() {
+                const isActive = menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                document.body.style.overflow = menuToggle.classList.contains('active') ? 'hidden' : '';
+            }
+
+            function closeMenu() {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', closeMenu);
+            }
+        }
+    </script>
+</body>
+</html>

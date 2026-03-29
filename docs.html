@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - QR Generator Pro</title>
+    <meta name="description" content="Guía completa de uso, preguntas frecuentes y casos de uso de QR Generator Pro.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .docs-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .docs-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .docs-hero p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .docs-search {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .docs-search input {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            display: block;
+        }
+        
+        .docs-search input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .docs-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .docs-container {
+                grid-template-columns: 1fr;
+                padding: 1.5rem 15px;
+            }
+            
+            .docs-sidebar {
+                position: static;
+            }
+            
+            .docs-nav {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .docs-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .docs-nav h3 {
+                display: none;
+            }
+            
+            .docs-nav a {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+                background: #f7fafc;
+            }
+            
+            .docs-section {
+                padding: 1.5rem;
+            }
+            
+            .docs-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .docs-section h3 {
+                font-size: 1.125rem;
+            }
+            
+            .docs-hero {
+                padding: 2rem 0;
+            }
+            
+            .docs-hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .docs-hero p {
+                font-size: 1rem;
+            }
+            
+            .docs-search {
+                padding: 1rem 0;
+            }
+            
+            .docs-search input {
+                padding: 0.875rem 1rem;
+                font-size: 1rem; /* Evita zoom en iOS */
+            }
+            
+            .step-list li {
+                padding-left: 2.5rem;
+            }
+            
+            .step-list li::before {
+                width: 1.75rem;
+                height: 1.75rem;
+                font-size: 0.75rem;
+            }
+            
+            .info-box {
+                padding: 0.875rem 1rem;
+            }
+            
+            .faq-question {
+                padding: 0.875rem 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .faq-answer {
+                padding: 0 0.875rem 0.875rem;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0.875rem;
+            }
+            
+            .code-block {
+                padding: 0.875rem;
+                font-size: 0.8rem;
+            }
+            
+            table {
+                font-size: 0.875rem;
+                overflow-x: auto;
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .docs-hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .docs-section {
+                padding: 1rem;
+            }
+            
+            .docs-nav a {
+                flex: 1;
+                min-width: calc(50% - 0.25rem);
+                text-align: center;
+            }
+        }
+        
+        .docs-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .docs-nav {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .docs-nav h3 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+        
+        .docs-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .docs-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .docs-nav a {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: #4a5568;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        
+        .docs-nav a:hover,
+        .docs-nav a.active {
+            background: #f7fafc;
+            color: #667eea;
+        }
+        
+        .docs-content {
+            min-width: 0;
+        }
+        
+        .docs-section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .docs-section h2 {
+            font-size: 1.75rem;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .docs-section h2 svg {
+            width: 28px;
+            height: 28px;
+            color: #667eea;
+        }
+        
+        .docs-section h3 {
+            font-size: 1.25rem;
+            color: #2d3748;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .docs-section p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .docs-section ul,
+        .docs-section ol {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .docs-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .docs-section strong {
+            color: #1a202c;
+        }
+        
+        .step-list {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .step-list li {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-list li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .step-list li strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 1rem 1.25rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box.success {
+            background: #f0fff4;
+            border-left-color: #48bb78;
+        }
+        
+        .info-box.warning {
+            background: #fffaf0;
+            border-left-color: #ed8936;
+        }
+        
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .faq-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: #f7fafc;
+            border: none;
+            text-align: left;
+            font-weight: 600;
+            color: #2d3748;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+        }
+        
+        .faq-question:hover {
+            background: #edf2f7;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #718096;
+            transition: transform 0.2s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1rem 1.25rem;
+            max-height: 500px;
+        }
+        
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem 1.25rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section p {
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Donate Button */
+        .btn-donate-nav {
+            background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+            color: var(--white) !important;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-donate-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(237, 137, 54, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="3" height="3" rx="0.5"/>
+                    <rect x="18" y="14" width="3" height="3" rx="0.5"/>
+                    <rect x="14" y="18" width="3" height="3" rx="0.5"/>
+                    <rect x="18" y="18" width="3" height="3" rx="0.5"/>
+                </svg>
+                <span>QR Generator Pro</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html">Generador</a>
+                <a href="features.html">Características</a>
+                <a href="analytics.html">Analytics</a>
+                <a href="docs.html" class="active">Documentación</a>
+                <a href="index.html" class="btn-donate-nav">☕ Donar</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- Hero -->
+    <section class="docs-hero">
+        <div class="container">
+            <h1>Documentación</h1>
+            <p>Guía completa para sacar el máximo provecho de QR Generator Pro</p>
+        </div>
+    </section>
+
+    <!-- Search -->
+    <div class="docs-search">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar en la documentación...">
+    </div>
+
+    <!-- Main Content -->
+    <div class="docs-container">
+        <!-- Sidebar -->
+        <aside class="docs-sidebar">
+            <nav class="docs-nav">
+                <h3>Guía de Uso</h3>
+                <ul>
+                    <li><a href="#primeros-pasos" class="active">Primeros Pasos</a></li>
+                    <li><a href="#tipos-contenido">Tipos de Contenido</a></li>
+                    <li><a href="#personalizacion">Personalización</a></li>
+                    <li><a href="#descarga">Descarga</a></li>
+                </ul>
+                
+                <h3 style="margin-top: 1.5rem;">Recursos</h3>
+                <ul>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#casos-uso">Casos de Uso</a></li>
+                    <li><a href="#especificaciones">Especificaciones</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Content -->
+        <main class="docs-content">
+            <!-- Primeros Pasos -->
+            <section class="docs-section" id="primeros-pasos">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                    </svg>
+                    Primeros Pasos
+                </h2>
+                
+                <p>Bienvenido a QR Generator Pro. Sigue estos pasos para crear tu primer código QR personalizado:</p>
+                
+                <ol class="step-list">
+                    <li>
+                        <strong>Ingresa el contenido</strong>
+                        <p>Escribe la URL, texto, email o teléfono que quieres codificar en tu QR. También puedes seleccionar el tipo de contenido desde los botones superiores.</p>
+                    </li>
+                    <li>
+                        <strong>Personaliza el diseño</strong>
+                        <p>Elige los colores, agrega un logo (opcional) y selecciona el tamaño que necesitas. ¡Hazlo único!</p>
+                    </li>
+                    <li>
+                        <strong>Genera el QR</strong>
+                        <p>Haz clic en el botón "Generar QR" y verás una vista previa instantánea de tu código.</p>
+                    </li>
+                    <li>
+                        <strong>Descarga</strong>
+                        <p>Selecciona el formato (PNG, SVG o JPEG) y haz clic en "Descargar QR". ¡Listo para usar!</p>
+                    </li>
+                </ol>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                            <polyline points="22,4 12,14.01 9,11.01"/>
+                        </svg>
+                        Consejo Pro
+                    </div>
+                    <p>Si vas a usar tu QR impreso, selecciona al menos 512px y usa corrección de errores alta (H) para que siga funcionando aunque se dañe parcialmente.</p>
+                </div>
+            </section>
+
+            <!-- Tipos de Contenido -->
+            <section class="docs-section" id="tipos-contenido">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2"/>
+                        <line x1="12" y1="18" x2="12" y2="18"/>
+                    </svg>
+                    Tipos de Contenido
+                </h2>
+                
+                <p>QR Generator Pro soporta múltiples tipos de contenido. Cada uno tiene un formato específico:</p>
+                
+                <h3>🔗 URL</h3>
+                <p>El tipo más común. Ingresa cualquier dirección web completa (incluye https://).</p>
+                <div class="code-block">https://tu-sitio.com</div>
+                
+                <h3>📝 Texto</h3>
+                <p>Muestra texto directamente al escanear. Ideal para mensajes cortos, instrucciones o información.</p>
+                <div class="code-block">¡Hola! Este es un mensaje QR.</div>
+                
+                <h3>📧 Email</h3>
+                <p>Abre la app de correo del usuario con el destinatario prellenado.</p>
+                <div class="code-block">nombre@ejemplo.com</div>
+                
+                <h3>📞 Teléfono</h3>
+                <p>Permite llamar directamente al escanear. Incluye el código de país.</p>
+                <div class="code-block">+52 55 1234 5678</div>
+                
+                <h3>📶 WiFi</h3>
+                <p>Conecta automáticamente a una red WiFi. Necesitas:</p>
+                <ul>
+                    <li><strong>SSID:</strong> Nombre de la red</li>
+                    <li><strong>Contraseña:</strong> Clave de la red</li>
+                    <li><strong>Encriptación:</strong> WPA, WEP o Sin contraseña</li>
+                </ul>
+                
+                <div class="info-box warning">
+                    <div class="info-box-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        Importante
+                    </div>
+                    <p>El QR de WiFi funciona en la mayoría de dispositivos modernos (iOS 11+, Android 10+). Asegúrate de que el SSID sea exacto (distingue mayúsculas/minúsculas).</p>
+                </div>
+            </section>
+
+            <!-- Personalización -->
+            <section class="docs-section" id="personalizacion">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 8v8M8 12h8"/>
+                    </svg>
+                    Personalización
+                </h2>
+                
+                <h3>🎨 Colores</h3>
+                <p>Personaliza los colores de tu QR para que coincida con tu marca:</p>
+                <ul>
+                    <li><strong>Color del QR:</strong> El color de los módulos (cuadraditos)</li>
+                    <li><strong>Color de fondo:</strong> El color detrás del QR</li>
+                    <li><strong>Gradiente:</strong> Activa esta opción para usar dos colores en degradado</li>
+                </ul>
+                
+                <div class="info-box">
+                    <div class="info-box-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        Tip de Legibilidad
+                    </div>
+                    <p>Para que tu QR sea fácil de leer, usa alto contraste entre el color del QR y el fondo. Ejemplo: QR oscuro sobre fondo claro.</p>
+                </div>
+                
+                <h3>🖼️ Logo Central</h3>
+                <p>Agrega tu logo en el centro del QR para branding:</p>
+                <ul>
+                    <li>Formatos: PNG o JPG</li>
+                    <li>Tamaño máximo: 500KB</li>
+                    <li>Recomendado: Logo cuadrado o circular</li>
+                </ul>
+                
+                <div class="info-box warning">
+                    <div class="info-box-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                        Importante con Logos
+                    </div>
+                    <p>Si agregas un logo, usa corrección de errores <strong>Alta (H)</strong> para compensar el área cubierta. Esto asegura que el QR siga siendo legible.</p>
+                </div>
+                
+                <h3>📐 Tamaño y Calidad</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                    <thead>
+                        <tr style="background: #f7fafc;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e2e8f0;">Tamaño</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #e2e8f0;">Uso Recomendado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #e2e8f0;">256x256</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e2e8f0;">Web, email, documentos digitales</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #e2e8f0;">512x512</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e2e8f0;">Impresión pequeña, tarjetas de presentación</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #e2e8f0;">1024x1024</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e2e8f0;">Impresión grande, carteles, vallas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Descarga -->
+            <section class="docs-section" id="descarga">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Descarga
+                </h2>
+                
+                <p>Una vez generado tu QR, puedes descargarlo en tres formatos:</p>
+                
+                <h3>📷 PNG</h3>
+                <p>Formato más común. Ideal para:</p>
+                <ul>
+                    <li>Redes sociales</li>
+                    <li>Sitios web</li>
+                    <li>Presentaciones</li>
+                    <li>Documentos digitales</li>
+                </ul>
+                
+                <h3>📄 SVG</h3>
+                <p>Formato vectorial. Ideal para:</p>
+                <ul>
+                    <li>Impresión profesional</li>
+                    <li>Diseñadores gráficos</li>
+                    <li>Escalado sin pérdida de calidad</li>
+                    <li>Edición en Illustrator/Inkscape</li>
+                </ul>
+                
+                <h3>🖼️ JPEG</h3>
+                <p>Formato compatible universalmente. Ideal para:</p>
+                <ul>
+                    <li>Compatibilidad máxima</li>
+                    <li>Archivos más pequeños</li>
+                    <li>Impresión básica</li>
+                </ul>
+                
+                <div class="info-box success">
+                    <div class="info-box-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                            <polyline points="22,4 12,14.01 9,11.01"/>
+                        </svg>
+                        Tus QRs se Guardan
+                    </div>
+                    <p>Todos tus QRs generados se guardan automáticamente en tu navegador. Puedes acceder a ellos desde la página de <a href="analytics.html" style="color: #667eea;">Analytics</a>.</p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="docs-section" id="faq">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/>
+                    </svg>
+                    Preguntas Frecuentes
+                </h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Es realmente gratis?</button>
+                    <div class="faq-answer">
+                        <p>¡Sí! QR Generator Pro es 100% gratis. No hay límites en la cantidad de QRs que puedes crear, ni marcas de agua ocultas. Todo el financiamiento viene de anuncios opcionales y donaciones de usuarios como tú.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Necesito registrarme para usar la herramienta?</button>
+                    <div class="faq-answer">
+                        <p>No, no necesitas crear una cuenta ni proporcionar ningún dato personal. Todo funciona directamente en tu navegador de forma anónima.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Cuánto tiempo duran mis QRs?</button>
+                    <div class="faq-answer">
+                        <p>¡Para siempre! Una vez que descargas tu QR, es tuyo. Los códigos QR no tienen fecha de expiración. Sin embargo, los QRs guardados en tu historial solo persisten mientras no borres el caché de tu navegador.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Puedo editar un QR después de creado?</button>
+                    <div class="faq-answer">
+                        <p>No directamente. Los QRs estáticos (como los que generamos) no se pueden editar después de creados. Si necesitas cambiar el contenido, debes generar un nuevo QR. Para soluciones de QR dinámicos (editables), se requiere un servicio de pago con servidor intermedio.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Qué pasa si borro el caché de mi navegador?</button>
+                    <div class="faq-answer">
+                        <p>Perderás el historial de QRs guardados, pero NO los QRs que ya descargaste. Te recomendamos descargar siempre los QRs importantes y guardarlos en tu computadora o nube.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Funciona en dispositivos móviles?</button>
+                    <div class="faq-answer">
+                        <p>¡Sí! QR Generator Pro es completamente responsive y funciona en cualquier dispositivo con navegador web: smartphones, tablets, laptops, etc.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Mis datos están seguros?</button>
+                    <div class="faq-answer">
+                        <p>Absolutamente. Todo el procesamiento se hace en tu navegador (client-side). Ningún dato que ingreses sale de tu dispositivo. No enviamos información a servidores externos.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">¿Puedo usar los QRs para fines comerciales?</button>
+                    <div class="faq-answer">
+                        <p>Sí, puedes usar los QRs generados para cualquier propósito, incluyendo comercial. No requerimos atribución ni cobramos regalías.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Casos de Uso -->
+            <section class="docs-section" id="casos-uso">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    Casos de Uso
+                </h2>
+                
+                <h3>🍽️ Restaurantes y Cafés</h3>
+                <ul>
+                    <li>Menús digitales sin contacto</li>
+                    <li>Conexión WiFi automática para clientes</li>
+                    <li>Enlaces a reseñas en Google/TripAdvisor</li>
+                    <li>Pagos QR (PayPal, Bizum, etc.)</li>
+                </ul>
+                
+                <h3>📦 E-commerce y Retail</h3>
+                <ul>
+                    <li>Seguimiento de productos</li>
+                    <li>Enlaces a reseñas de productos</li>
+                    <li>Cupones de descuento</li>
+                    <li>Información de garantía</li>
+                </ul>
+                
+                <h3>🎫 Eventos</h3>
+                <ul>
+                    <li>Tickets digitales con validación</li>
+                    <li>Check-in rápido</li>
+                    <li>Programas y horarios</li>
+                    <li>Encuestas post-evento</li>
+                </ul>
+                
+                <h3>🏢 Negocios y Profesionales</h3>
+                <ul>
+                    <li>Tarjetas de presentación digitales</li>
+                    <li>Portafolios y sitios web</li>
+                    <li>Agendar citas automáticamente</li>
+                    <li>Conectar en LinkedIn</li>
+                </ul>
+                
+                <h3>📚 Educación</h3>
+                <ul>
+                    <li>Enlaces a material de clase</li>
+                    <li>Videos educativos</li>
+                    <li>Formularios de evaluación</li>
+                    <li>Recursos adicionales</li>
+                </ul>
+                
+                <h3>🏥 Salud</h3>
+                <ul>
+                    <li>Agendamiento de turnos</li>
+                    <li>Información de servicios</li>
+                    <li>Formularios de historial</li>
+                    <li>Instrucciones post-consulta</li>
+                </ul>
+            </section>
+
+            <!-- Especificaciones -->
+            <section class="docs-section" id="especificaciones">
+                <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                    Especificaciones Técnicas
+                </h2>
+                
+                <h3>Formatos de Salida</h3>
+                <ul>
+                    <li><strong>PNG:</strong> Portable Network Graphics, sin pérdida de calidad</li>
+                    <li><strong>SVG:</strong> Scalable Vector Graphics, vectorial</li>
+                    <li><strong>JPEG:</strong> Joint Photographic Experts Group, compatible universal</li>
+                </ul>
+                
+                <h3>Tamaños Disponibles</h3>
+                <ul>
+                    <li>256x256 píxeles</li>
+                    <li>512x512 píxeles</li>
+                    <li>1024x1024 píxeles</li>
+                </ul>
+                
+                <h3>Niveles de Corrección de Errores</h3>
+                <ul>
+                    <li><strong>L (Low):</strong> 7% de recuperación</li>
+                    <li><strong>M (Medium):</strong> 15% de recuperación</li>
+                    <li><strong>Q (Quartile):</strong> 25% de recuperación</li>
+                    <li><strong>H (High):</strong> 30% de recuperación</li>
+                </ul>
+                
+                <h3>Tipos de QR Soportados</h3>
+                <ul>
+                    <li>URL (http/https)</li>
+                    <li>Texto plano</li>
+                    <li>Email (mailto:)</li>
+                    <li>Teléfono (tel:)</li>
+                    <li>WiFi (WIFI:T:WPA;S:SSID;P:PASS;;)</li>
+                </ul>
+                
+                <h3>Requisitos del Sistema</h3>
+                <ul>
+                    <li>Cualquier navegador moderno (Chrome, Firefox, Safari, Edge)</li>
+                    <li>JavaScript habilitado</li>
+                    <li>Conexión a internet (solo para cargar la librería la primera vez)</li>
+                </ul>
+                
+                <div class="info-box">
+                    <div class="info-box-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        Tecnología
+                    </div>
+                    <p>QR Generator Pro usa la librería <code>qr-code-styling</code> para generar códigos QR de alta calidad directamente en tu navegador.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para crear tu QR?</h2>
+            <p>Empieza ahora, es 100% gratis y sin registro</p>
+            <a href="index.html" class="cta-button">Ir al Generador</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        </svg>
+                        <span>QR Generator Pro</span>
+                    </div>
+                    <p>Crea códigos QR personalizados gratis. Sin registro, sin límites.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Producto</h4>
+                    <a href="index.html">Generador</a>
+                    <a href="features.html">Características</a>
+                    <a href="analytics.html">Analytics</a>
+                    <a href="docs.html">Documentación</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <a href="#">API (pronto)</a>
+                    <a href="#">Documentación</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 QR Generator Pro. 100% gratis y sin registro.</p>
+                <p style="margin-top: 0.5rem;">¿Te gusta este proyecto? <a href="https://paypal.me/SebastianS2005" target="_blank" style="color: #0070ba; font-weight: 600; text-decoration: none;">Apóyame con una donación 💙</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('.docs-section');
+            
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = query ? 'none' : 'block';
+                }
+            });
+        });
+
+        // Active nav on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.docs-nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${entry.target.id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.docs-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+    
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.querySelector('.nav');
+        const navOverlay = document.getElementById('navOverlay');
+        
+        if (menuToggle) {
+            function toggleMenu() {
+                const isActive = menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                navOverlay.classList.toggle('active');
+                document.body.style.overflow = menuToggle.classList.contains('active') ? 'hidden' : '';
+            }
+
+            function closeMenu() {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', closeMenu);
+            }
+        }
+    </script>
+</body>
+</html>
