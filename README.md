@@ -6,6 +6,23 @@ Generador de códigos QR personalizados con analytics integrado. 100% gratis, si
 
 **https://qr-generator-pro-green.vercel.app/**
 
+## 🔌 API
+
+**Documentación completa:** [API.md](API.md)
+
+**Endpoints:**
+- `GET /api/info` - Información de la API
+- `GET /api/generate?data=URL` - Generar QR (GET)
+- `POST /api/generate` - Generar QR (POST)
+- `GET /api/docs` - Documentación completa
+
+**Ejemplo rápido:**
+```bash
+curl "https://qr-generator-pro-green.vercel.app/api/generate?data=https://example.com"
+```
+
+**Rate Limit:** 100 requests/minuto (free tier)
+
 ## 📁 Estructura del Proyecto
 
 ```
